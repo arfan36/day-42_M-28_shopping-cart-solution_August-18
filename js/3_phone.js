@@ -1,9 +1,17 @@
+function updatePhoneTotalPrice(newPhoneNumber) {
+    const phoneTotalPrice = newPhoneNumber * 1219;
+    const phoneTotalElement = document.getElementById('phone-total');
+    phoneTotalElement.innerText = phoneTotalPrice;
+}
+
 document.getElementById('btn-phone-plus').addEventListener('click', function () {
-    const phoneNumberField = document.getElementById('phone-number-field');
-    const phoneNumberString = phoneNumberField.value;
-    const previousPhoneNumber = parseInt(phoneNumberString);
+    const newPhoneNumber = updatePhoneNumber(true);
 
-    const newPhonneNumber = previousPhoneNumber + 1;
+    updatePhoneTotalPrice(newPhoneNumber);
+});
 
-    phoneNumberField.value = newPhonneNumber;
+document.getElementById('btn-phone-minus').addEventListener('click', function () {
+    const newPhoneNumber = updatePhoneNumber(false);
+
+    updatePhoneTotalPrice(newPhoneNumber);
 });
